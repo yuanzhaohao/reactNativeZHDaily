@@ -6,7 +6,7 @@ import {
   View,
   StyleSheet,
 } from 'react-native';
-import Utils from './Utils';
+import Utils from './common/Utils';
 
 const Loading = React.createClass({
   render() {
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff'
+    backgroundColor: '#eeeeee'
   },
   img: {
     width: 150,

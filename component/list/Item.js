@@ -4,24 +4,46 @@ import React from 'react';
 import {
   View,
   Text,
+  Image,
   StyleSheet,
 } from 'react-native';
+import Utils from '../common/Utils';
 
 const List = React.createClass({
   render() {
+    const itemData = this.props.itemData;
     return (
-      <View style={styles.container}></View>
+      <View style={[styles.item, size]}>
+        <Image style={[styles.img, imgSize]} source={{uri: itemData.images[0]}} />
+        <Text style={styles.title}>{itemData.title}</Text>
+      </View>
     );
   }
 });
 
+const size = Utils.getSize(375, 90);
+const imgSize = Utils.getSize(95, 68);
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
+  item: {
+    backgroundColor: '#f7f7f7',
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#ddd',
   },
+  img: {
+    position: 'absolute',
+    top: 10,
+    left: 10,
+    backgroundColor: '#eee',
+  },
+  title: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    left: imgSize.width + 10 * 2,
+    fontSize: 16,
+    lineHeight: 20,
+    color: '#262b31',
+  }
 });
 
 module.exports = List;

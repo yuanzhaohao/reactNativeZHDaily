@@ -6,8 +6,8 @@ import {
 } from 'react-native';
 import API from './component/common/API';
 import Model from './component/common/Model';
-import Loading from './component/common/Loading';
-import List from './component/list/List';
+import Loading from './component/Loading';
+import Index from './component/Index';
 
 const App = React.createClass({
   getInitialState() {
@@ -36,7 +36,7 @@ const App = React.createClass({
     }
 
     return (
-      <List stories={this.state.stories} topStories={this.state.topStories} />
+      <Index stories={this.state.stories} topStories={this.state.topStories} />
     );
   }
 });
