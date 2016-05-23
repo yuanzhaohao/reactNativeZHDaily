@@ -1,19 +1,41 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+'use strict';
 
-import React, { Component } from 'react';
+import React from 'react';
 import {
   AppRegistry,
-  StyleSheet,
+  View,
   Text,
-  View
+  StyleSheet,
 } from 'react-native';
+import API from './component/common/API';
+import Model from './component/common/Model';
+import Loading from './component/common/Loading';
 
-class reactNativeZHDaily extends Component {
+const App = React.createClass({
+  getInitialState() {
+    return {
+      loaded: false
+    };
+  },
+  componentWillMount() {
+    console.log(Model)
+    Model.latest({
+      url: '//news-at.zhihu.com/api/4/news/latest'
+    }, (re) => {
+      if (re && re.stories && re.top_stories) {
+        this.setState({
+          loaded: true,
+          stories: re.stories,
+          topStories: re.top_stories
+        });
+      }
+    });
+  },
   render() {
+    if (!this.state.loaded) {
+      return <Loading />;
+    }
+
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -29,7 +51,7 @@ class reactNativeZHDaily extends Component {
       </View>
     );
   }
-}
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -50,4 +72,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('reactNativeZHDaily', () => reactNativeZHDaily);
+AppRegistry.registerComponent('reactNativeZHDaily', () => App);
