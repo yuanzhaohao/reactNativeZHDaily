@@ -1,22 +1,21 @@
 'use strict';
 
 import underscore from 'underscore';
+import API from './API';
 
 const api = {
-  'lastest': '//news-at.zhihu.com/api/4/news/latest',
+  'latest': '//news-at.zhihu.com/api/4/news/latest',
 };
 
 module.exports = {
-  lastest(opts, succCallback, failCallback) {
-    this._fetchData.call(this, opts, succCallback, failCallback);
-  },
+  latest(opts, succCallback, failCallback) {
 
-  _fetchData(opts, succCallback, failCallback) {
-    opts = Object.assign({
-      success: succCallback,
-      error: failCallback,
+    opts = Object.assign(opts, {
+      url: api.latest,
       cacheValidTime: 5 * 60 * 60 * 1000,
-    }, opts);
+      success: succCallback,
+      error: failCallback
+    });
     API.dlp(opts);
   }
 };
