@@ -8,13 +8,14 @@ import {
   StyleSheet,
 } from 'react-native';
 import Utils from '../common/Utils';
+import LazyImg from '../common/LazyImg';
 
 const List = React.createClass({
   render() {
     const itemData = this.props.itemData;
     return (
       <View style={[styles.item, size]}>
-        <Image style={[styles.img, imgSize]} source={{uri: itemData.images[0]}} />
+        <LazyImg imgStyle={[styles.img, imgSize]} lazySource={{uri: itemData.images[0]}} />
         <Text style={styles.title} numberOfLines={2}>{itemData.title}</Text>
       </View>
     );
