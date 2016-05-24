@@ -35,6 +35,10 @@ const Utils = (() => {
     return url.match(/^\/\//) ? schema + ':' + url : url;
   };
 
+  self.circle = function (i, len) {
+    return (len + (i % len)) % len;
+  };
+
   return self;
 })();
 

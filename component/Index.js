@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import LazyloadView from './common/LazyloadView';
 import List from './list/List';
+import Gallery from './gallery/Gallery';
 
 const Index = React.createClass({
   _onScroll(e) {
@@ -26,6 +27,7 @@ const Index = React.createClass({
           scrollRenderAheadDistance={750}
           _onScroll={this._onScroll}
         >
+          <Gallery topStories={this.props.topStories} />
           <List stories={this.props.stories} />
         </LazyloadView>
       </View>
