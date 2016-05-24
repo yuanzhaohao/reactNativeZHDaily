@@ -15,14 +15,14 @@ const List = React.createClass({
     return (
       <View style={[styles.item, size]}>
         <Image style={[styles.img, imgSize]} source={{uri: itemData.images[0]}} />
-        <Text style={styles.title}>{itemData.title}</Text>
+        <Text style={styles.title} numberOfLines={2}>{itemData.title}</Text>
       </View>
     );
   }
 });
 
 const size = Utils.getSize(375, 90);
-const imgSize = Utils.getSize(95, 68);
+const imgSize = Utils.getSize(95, 70);
 const styles = StyleSheet.create({
   item: {
     backgroundColor: '#f7f7f7',
