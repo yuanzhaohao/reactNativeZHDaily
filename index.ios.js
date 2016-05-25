@@ -8,6 +8,7 @@ import API from './component/common/API';
 import Model from './component/common/Model';
 import Loading from './component/Loading';
 import Index from './component/Index';
+// import Webview from './component/Webview';
 
 const App = React.createClass({
   getInitialState() {
