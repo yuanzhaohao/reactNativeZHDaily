@@ -41,8 +41,8 @@ const styles = StyleSheet.create({
     top: 10,
     right: 10,
     left: imgSize.width + 10 * 2,
-    fontSize: 16,
-    lineHeight: 20,
+    fontSize: 14,
+    lineHeight: 18,
     color: '#262b31',
   }
 });
