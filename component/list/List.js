@@ -5,17 +5,27 @@ import {
   View,
   Text,
   StyleSheet,
+  ListView,
+  RecyclerViewBackedScrollView,
 } from 'react-native';
 import Item from './Item';
 
 const List = React.createClass({
   render() {
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    const dataSource = ds.cloneWithRows(this.props.stories);
     return (
-      <View style={styles.container}>
-        {this.props.stories.map((item, i) =>
-          <Item key={i} itemData={item} />
-        )}
-      </View>
+      <ListView
+        dataSource={dataSource}
+        renderRow={this._renderRow}
+        renderScrollComponent={props => <RecyclerViewBackedScrollView {...props} />}
+      />
+    );
+  },
+
+  _renderRow(itemData, sectionId, rowId) {
+    return (
+      <Item key={rowId} itemData={itemData} />
     );
   }
 });

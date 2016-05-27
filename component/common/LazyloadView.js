@@ -43,6 +43,7 @@ const LazyloadView = React.createClass({
   },
 
   measureScrollView() {
+    console.log('call measureScrollView');
     UIManager.measureLayoutRelativeToParent(
       findNodeHandle(this.scrollView),
       noop,

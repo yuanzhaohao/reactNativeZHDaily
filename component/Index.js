@@ -20,16 +20,15 @@ const Index = React.createClass({
   render() {
     return (
       <View style={styles.root}>
-        <LazyloadView
+        <ScrollView
           ref={'Lazyload'}
           style={styles.lazy}
-          diff={200}
-          scrollRenderAheadDistance={750}
+          diff={0}
           _onScroll={this._onScroll}
         >
           <Gallery topStories={this.props.topStories} />
           <List stories={this.props.stories} />
-        </LazyloadView>
+        </ScrollView>
       </View>
     );
   }
